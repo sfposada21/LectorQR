@@ -1,6 +1,7 @@
 import 'package:codigoqr/pages/pages.dart';
+import 'package:codigoqr/providers/provider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../widgets/widgets.dart';
 
 
@@ -28,8 +29,9 @@ class _HomeBody extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-
-  var currentIndex = 0;
+  
+  final myProvider = Provider.of<UiProvider>(context);
+  var currentIndex = myProvider.selectedMenu;
 
   switch (currentIndex) {
     case 0: 

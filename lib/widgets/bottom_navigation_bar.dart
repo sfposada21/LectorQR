@@ -1,13 +1,20 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/provider.dart';
 
 class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
 
-    var currentIndex = 1;
+    final myProvider = Provider.of<UiProvider>(context);
+    var currentIndex = myProvider.selectedMenu;
+
     return BottomNavigationBar(
+      onTap: (int i) {
+        myProvider.selectedMenu = i;
+      },
       selectedItemColor: Color.fromARGB(255, 194, 206, 206),
       showSelectedLabels: false,
       showUnselectedLabels: false,

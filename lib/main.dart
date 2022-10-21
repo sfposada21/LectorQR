@@ -1,4 +1,6 @@
+import 'package:codigoqr/providers/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'router/app_router.dart';
 
@@ -9,12 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'QR Reader',
-      initialRoute: AppRoutes.initialRoute,
-      routes: AppRoutes.routes,       
-      theme: ThemeData.light(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: ( _ ) => UiProvider(), lazy: false ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'QR Reader',
+        initialRoute: AppRoutes.initialRoute,
+        routes: AppRoutes.routes,       
+        theme: ThemeData.light(),
+      ),
     );
   }
 }

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-class MoviesProvider extends ChangeNotifier {
+class UiProvider extends ChangeNotifier {
 
+  int _selectedMenu = 1;
 
+  int get selectedMenu {
+    return _selectedMenu;
+  }
+
+  set selectedMenu( int i) {
+    _selectedMenu = i;
+    notifyListeners();
+  }
 
 }
