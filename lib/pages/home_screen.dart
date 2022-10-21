@@ -1,4 +1,5 @@
 import 'package:codigoqr/pages/pages.dart';
+import 'package:codigoqr/providers/db_provider.dart';
 import 'package:codigoqr/providers/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,8 @@ class _HomeBody extends StatelessWidget {
   
   final myProvider = Provider.of<UiProvider>(context);
   var currentIndex = myProvider.selectedMenu;
+
+  DBProvider.db.database;
 
   switch (currentIndex) {
     case 0: 
